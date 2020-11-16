@@ -26,7 +26,7 @@ namespace SingleDimensionalArray
             Console.WriteLine();
             var imin = Array.FindIndex(A, p => Math.Abs(p) <= Math.Abs(A.Min()));
             Console.WriteLine($"Индекс минимального элемента в массиве: {imin}");
-
+            
             try
             {
                 double sum = 0;
@@ -39,7 +39,7 @@ namespace SingleDimensionalArray
                 Console.WriteLine("Не найдено отрицательных элементов в массиве.");
             }
 
-            var vs = A.Where(p => p >= a && p <= b).ToArray();
+            Array vs = A.Where(p => p <= a || p >= b).ToArray();
             Array.ConstrainedCopy(vs, 0, A, 0, vs.Length);
             Array.Clear(A, vs.Length, A.Length-vs.Length);
             Array.ForEach(A, (el) => { el = 0; });
